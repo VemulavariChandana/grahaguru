@@ -53,4 +53,44 @@
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.3);
   }
+  
+  /* 3D Card Perspective */
+  .perspective {
+    perspective: 1000px;
+  }
+  
+  .transform-style-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  /* Floating animations */
+  @keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .animate-floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  /* Star twinkle animation */
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  .animate-twinkle {
+    animation: twinkle 2s ease-in-out infinite;
+  }
 }
