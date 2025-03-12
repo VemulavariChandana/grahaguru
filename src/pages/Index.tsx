@@ -1,10 +1,9 @@
-
 import { useState, useEffect } from "react";
 import { zodiacSigns } from "@/data/zodiacData";
 import { ZodiacCard } from "@/components/ZodiacCard";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { MoonStars, Sun, Sparkles } from "lucide-react";
+import { MoonStar, Sun, Sparkles } from "lucide-react";
 import { fetchHoroscope } from "@/services/astrologyService";
 import {
   Select,
@@ -23,7 +22,6 @@ const Index = () => {
   const selectedZodiac = zodiacSigns.find((sign) => sign.name === selectedSign);
 
   useEffect(() => {
-    // Set time of day based on user's local time
     const hours = new Date().getHours();
     if (hours >= 6 && hours < 18) {
       setTimeOfDay("day");
@@ -66,7 +64,7 @@ const Index = () => {
           onClick={toggleTimeOfDay}
           className="bg-white/10 hover:bg-white/20 text-white rounded-full"
         >
-          {timeOfDay === "day" ? <MoonStars className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+          {timeOfDay === "day" ? <MoonStar className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
         </Button>
       </div>
 
