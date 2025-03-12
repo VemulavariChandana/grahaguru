@@ -20,9 +20,11 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [timeOfDay, setTimeOfDay] = useState<"day" | "night">("day");
 
+  // Find the selected zodiac sign data
   const selectedZodiac = zodiacSigns.find((sign) => sign.name === selectedSign);
 
   useEffect(() => {
+    // Set time of day based on current hour
     const hours = new Date().getHours();
     if (hours >= 6 && hours < 18) {
       setTimeOfDay("day");
@@ -42,9 +44,12 @@ const Index = () => {
         console.error("Error fetching horoscope:", error);
         // Set some default data in case of error to ensure something renders
         setHoroscopeData({
-          daily: "Unable to fetch your daily horoscope at the moment. The stars are aligning, please try again later.",
-          career: "The cosmic energies suggest focusing on your strengths today.",
-          love: "Venus encourages you to be open and honest in your relationships."
+          description: "Unable to fetch your daily horoscope at the moment. The stars are aligning, please try again later.",
+          lucky_number: "7",
+          lucky_time: "3:30 PM",
+          mood: "Reflective",
+          color: "Blue",
+          compatibility: "Gemini"
         });
       } finally {
         setIsLoading(false);
