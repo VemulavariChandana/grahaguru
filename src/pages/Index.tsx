@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { zodiacSigns } from "@/data/zodiacData";
 import { ZodiacCard } from "@/components/ZodiacCard";
@@ -39,6 +40,12 @@ const Index = () => {
         setHoroscopeData(data);
       } catch (error) {
         console.error("Error fetching horoscope:", error);
+        // Set some default data in case of error to ensure something renders
+        setHoroscopeData({
+          daily: "Unable to fetch your daily horoscope at the moment. The stars are aligning, please try again later.",
+          career: "The cosmic energies suggest focusing on your strengths today.",
+          love: "Venus encourages you to be open and honest in your relationships."
+        });
       } finally {
         setIsLoading(false);
       }
@@ -93,7 +100,7 @@ const Index = () => {
             Select Your Zodiac Sign
           </Label>
           <Select onValueChange={handleSelectSign}>
-            <SelectTrigger className="w-full bg-white/10 border-white/20 text-white">
+            <SelectTrigger id="zodiac-select" className="w-full bg-white/10 border-white/20 text-white">
               <SelectValue placeholder="Choose your sign" />
             </SelectTrigger>
             <SelectContent className="bg-mystical border-white/20">
